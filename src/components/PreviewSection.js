@@ -1,11 +1,20 @@
 import React from "react";
+import styled from "styled-components";
+
+const StyledSection = styled.section`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 2em;
+  align-items: center;
+`;
 
 class PreviewSection extends React.Component {
   render () {
     return (
-      <section>
+      <StyledSection>
         Here goes the preview of the CV
-      </section>
+      </StyledSection>
     )
   }
 }
