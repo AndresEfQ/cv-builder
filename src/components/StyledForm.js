@@ -1,17 +1,37 @@
-import React from "react";
 import styled from "styled-components";
 import "@fontsource/raleway/700.css";
 
 const StyledForm = styled.form`
+	box-sizing: border-box;
+	padding: 0;
+	margin: 1.5em 0;
 	font-family: "Raleway", Arial, Helvetica, sans-serif;
-	width: 100%
+	width: calc(100% - 4em);
+	
+	& fieldset {
+		width: 100%;
+		border-radius: 10px;
+		background-color: rgb(230, 230, 230);
+		border: none;
+		position: relative;
+	}
+
+	& legend {
+		position: absolute;
+		top: -25px
+	}
 	
 	& textarea {
 		resize: none;
+		border-radius: 5px;
+		border: none;
+		font-family: inherit;
 	}
 
 	& ul {
 		list-style: none;
+		margin: 0;
+		padding: 0;
 	}
 
 	& li {
@@ -21,9 +41,9 @@ const StyledForm = styled.form`
 	}
 
 	& input {
-		height: 1.5em;
+		height: 2em;
 		border-radius: 5px;
-		border: 1px solid rgb(200, 200, 200);
+		border: none;
 		outline: none;
 	}
 `;

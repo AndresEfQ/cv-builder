@@ -1,7 +1,38 @@
 import React from "react";
-import styled from "styled-components";
 import "@fontsource/raleway/700.css";
+import styled from "styled-components";
 import StyledForm from "./StyledForm";
+
+const StyledInputFile = styled.div`
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  width: 100%;
+
+  & input[type="file"] {
+    position: absolute;
+    z-index: -1;
+    top: 10px;
+    left: 8px;
+    font-size: 17px;
+    color: rgb(190, 190, 190);
+  }
+
+  & div {
+    position: relative;
+  }
+
+  & label {
+    display: inline-block;
+    padding: 12px 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: rgb(180, 0, 0);
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+  }
+`;
 
 class PersonalInfo extends React.Component {
   render () {
@@ -23,10 +54,6 @@ class PersonalInfo extends React.Component {
               <input type="text" name="title" id="title"  />
             </li>
             <li>
-              <label htmlFor="photo">Photo</label>
-              <input type="file" name="photo" id="photo"  />
-            </li>
-            <li>
               <label htmlFor="address">Address</label>
               <input type="text" name="address" id="address" />
             </li>
@@ -41,6 +68,14 @@ class PersonalInfo extends React.Component {
             <li>
               <label htmlFor="description">Description</label>
               <textarea name="description" id="description" cols="30" rows="3" placeholder="A short description of who are you and your skills" onResize={false}></textarea>
+            </li>
+            <li>
+              <StyledInputFile>
+                <div>
+                  <label htmlFor="photo">Photo</label>
+                  <input type="file" name="photo" id="photo"  />
+                </div>
+              </StyledInputFile>
             </li>
           </ul>
         </fieldset>
