@@ -7,6 +7,8 @@ const StyledForm = styled.form`
 	margin: 1.5em 0;
 	font-family: "Raleway", Arial, Helvetica, sans-serif;
 	width: calc(100% - 4em);
+	display: flex;
+	flex-direction: column;
 	
 	& fieldset {
 		width: 100%;

@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
+import uniqid from "uniqid";
 import PersonalInfo from "./PersonalInfo";
 import Experience from "./Experience";
-import StyledButton from "./StyledButton";
+import Button from "./Button";
 
 const StyledSection = styled.section`
   margin: 2em;
@@ -16,12 +17,56 @@ const StyledSection = styled.section`
 `;
 
 class EditSection extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      experience: [{
+        id: uniqid(),
+        position: '',
+        company: '',
+        city: '',
+        from: '',
+        to: '',
+      },
+      {
+        id: uniqid(),
+        position: '',
+        company: '',
+        city: '',
+        from: '',
+        to: '',
+      }],
+      education: [{
+        id: uniqid(),
+        university: '',
+        city: '',
+        degree: '',
+        subject: '',
+        from: '',
+        to: '',
+      }],
+    }
+  }
+
+  handleAddExperience = () => {
+
+  }
+
+  handleRemoveExperience = () => {
+
+  }
+
   render () {
+    let experienceSections = this.state.experience.map(element => <Experience removeExperience={this.handleRemoveExperience} />)
     return (
       <StyledSection>
         <PersonalInfo />
-        <Experience />
-        <StyledButton>Add Experience</StyledButton>
+        {experienceSections}
+        <Button
+          content="Add Experience"
+        />
         Here goes the information
       </StyledSection>
     )

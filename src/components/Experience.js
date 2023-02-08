@@ -1,5 +1,6 @@
 import React from "react";
 import StyledForm from "./StyledForm";
+import Button from "./Button";
 
 class Experience extends React.Component {
   render () {
@@ -31,6 +32,7 @@ class Experience extends React.Component {
             </li>
           </ul>
         </fieldset>
+        <Button content="Remove" position="right" onClick={this.props.removeExperience} />
       </StyledForm>
     )
   }

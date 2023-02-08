@@ -6,7 +6,7 @@ import StyledForm from "./StyledForm";
 const StyledInputFile = styled.div`
   display: flex;
   align-items: start;
-  justify-content: center;
+  justify-content: start;
   width: 100%;
 
   & input[type="file"] {
