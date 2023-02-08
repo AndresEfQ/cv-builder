@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import PersonalInfo from "./PersonalInfo";
+import Experience from "./Experience";
+import StyledButton from "./StyledButton";
 
 const StyledSection = styled.section`
   margin: 2em;
@@ -18,6 +20,8 @@ class EditSection extends React.Component {
     return (
       <StyledSection>
         <PersonalInfo />
+        <Experience />
+        <StyledButton>Add Experience</StyledButton>
         Here goes the information
       </StyledSection>
     )
