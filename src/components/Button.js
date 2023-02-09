@@ -14,9 +14,8 @@ const StyledButton = styled.button`
       props.position === "right" ? "12px 0 0 auto" : 
       props.position === "left" ? "12px auto 0 0" : 
       "12px auto 0 auto"
-    )}
+    );}
   };
-  margin-top: 12px;
 
   &:hover {
     cursor: pointer;

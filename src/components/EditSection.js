@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import uniqid from "uniqid";
 import PersonalInfo from "./PersonalInfo";
+import StyledForm from "./StyledForm";
 import Experience from "./Experience";
 import Button from "./Button";
 
@@ -29,14 +30,6 @@ class EditSection extends React.Component {
         city: '',
         from: '',
         to: '',
-      },
-      {
-        id: uniqid(),
-        position: '',
-        company: '',
-        city: '',
-        from: '',
-        to: '',
       }],
       education: [{
         id: uniqid(),
@@ -50,24 +43,83 @@ class EditSection extends React.Component {
     }
   }
 
-  handleAddExperience = () => {
-
+  handleAddExperience = (e) => {
+    e.preventDefault();
+    this.setState({
+      experience: [...this.state.experience, {
+        id: uniqid(),
+        position: '',
+        company: '',
+        city: '',
+        from: '',
+        to: '',
+      }],
+      education: this.state.education
+    });
   }
 
-  handleRemoveExperience = () => {
+  handleRemoveExperience = (e, sectionId) => {
+    e.preventDefault();
+    this.setState({
+      experience: this.state.experience.filter((section) => section.id !== sectionId),
+      education: this.state.education
+    });
+  }
 
+  handleExperienceInputChange = (e, sectionId) => {
+    const input = e.target.id;
+    const value = e.target.value;
+    this.setState({
+      experience: this.state.experience.map((section) => {
+        if (section.id === sectionId) {
+          return {
+            ...section,
+            [input]: value 
+          }; 
+        } else {
+          return section;
+        }
+      }),
+      education: this.state.education
+    });
   }
 
   render () {
-    let experienceSections = this.state.experience.map(element => <Experience removeExperience={this.handleRemoveExperience} />)
+    let experienceSections = this.state.experience.map(section => <Experience 
+      key={section.id} 
+      id={section.id}
+      removeExperience={this.handleRemoveExperience}
+      changeInput={this.handleExperienceInputChange}
+    />)
     return (
       <StyledSection>
         <PersonalInfo />
-        {experienceSections}
-        <Button
-          content="Add Experience"
-        />
-        Here goes the information
+        <StyledForm>
+          <fieldset>
+            <legend>Experience</legend>
+              {experienceSections}
+          </fieldset>
+          <Button
+            content="Add Experience" 
+            onClick={this.handleAddExperience}
+          />
+        </StyledForm>
+        <div>
+          TEST STATE
+          <br /> <br />
+          <span>{this.state.experience.map((section) => {
+            return (
+              <div>
+                position: {section.position} <br />
+                company: {section.company} <br />
+                city: {section.city} <br />
+                from: {section.from} <br />
+                to: {section.to}
+                <br /> <br />
+              </div>
+            )
+          })}</span>
+        </div>
       </StyledSection>
     )
   }

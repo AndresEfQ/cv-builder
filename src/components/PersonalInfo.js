@@ -6,7 +6,7 @@ import StyledForm from "./StyledForm";
 const StyledInputFile = styled.div`
   display: flex;
   align-items: start;
-  justify-content: start;
+  justify-content: center;
   width: 100%;
 
   & input[type="file"] {
@@ -67,7 +67,7 @@ class PersonalInfo extends React.Component {
             </li>
             <li>
               <label htmlFor="description">Description</label>
-              <textarea name="description" id="description" cols="30" rows="3" placeholder="A short description of who are you and your skills" onResize={false}></textarea>
+              <textarea name="description" id="description" cols="30" rows="3" placeholder="A short description of who are you and your skills"></textarea>
             </li>
             <li>
               <StyledInputFile>
