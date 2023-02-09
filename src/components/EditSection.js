@@ -4,6 +4,7 @@ import uniqid from "uniqid";
 import PersonalInfo from "./PersonalInfo";
 import StyledForm from "./StyledForm";
 import Experience from "./Experience";
+import Education from "./Education";
 import Button from "./Button";
 
 const StyledSection = styled.section`
@@ -54,7 +55,23 @@ class EditSection extends React.Component {
         from: '',
         to: '',
       }],
-      education: this.state.education
+      education: this.state.education,
+    });
+  }
+
+  handleAddEducation = (e) => {
+    e.preventDefault();
+    this.setState({
+      experience: this.state.experience,
+      education: [...this.state.education, {
+        id: uniqid(),
+        university: '',
+        city: '',
+        degree: '',
+        subject: '',
+        from: '',
+        to: '',
+      }],
     });
   }
 
@@ -62,7 +79,15 @@ class EditSection extends React.Component {
     e.preventDefault();
     this.setState({
       experience: this.state.experience.filter((section) => section.id !== sectionId),
-      education: this.state.education
+      education: this.state.education,
+    });
+  }
+
+  handleRemoveEducation = (e, sectionId) => {
+    e.preventDefault();
+    this.setState({
+      experience: this.state.experience,
+      education: this.state.education.filter((section) => section.id !== sectionId),
     });
   }
 
@@ -74,13 +99,31 @@ class EditSection extends React.Component {
         if (section.id === sectionId) {
           return {
             ...section,
-            [input]: value 
+            [input]: value,
           }; 
         } else {
           return section;
         }
       }),
-      education: this.state.education
+      education: this.state.education,
+    });
+  }
+
+  handleEducationInputChange = (e, sectionId) => {
+    const input = e.target.id;
+    const value = e.target.value;
+    this.setState({
+      experience: this.state.experience,
+      education: this.state.education.map((section) => {
+        if (section.id === sectionId) {
+          return {
+            ...section,
+            [input]: value,
+          };
+        } else {
+          return section;
+        }
+      }),
     });
   }
 
@@ -90,6 +133,12 @@ class EditSection extends React.Component {
       id={section.id}
       removeExperience={this.handleRemoveExperience}
       changeInput={this.handleExperienceInputChange}
+    />);
+    let educationSections = this.state.education.map(section => <Education
+      key={section.id}
+      id={section.id}
+      removeEducation={this.handleRemoveEducation}
+      changeInput={this.handleEducationInputChange}
     />)
     return (
       <StyledSection>
@@ -103,6 +152,14 @@ class EditSection extends React.Component {
             content="Add Experience" 
             onClick={this.handleAddExperience}
           />
+          <fieldset>
+            <legend>Education</legend>
+            {educationSections}
+          </fieldset>
+          <Button 
+            content="Add Education"
+            onClick={this.handleAddEducation}
+          />
         </StyledForm>
         <div>
           TEST STATE
@@ -113,6 +170,19 @@ class EditSection extends React.Component {
                 position: {section.position} <br />
                 company: {section.company} <br />
                 city: {section.city} <br />
+                from: {section.from} <br />
+                to: {section.to}
+                <br /> <br />
+              </div>
+            )
+          })}</span>
+          <span>{this.state.education.map((section) => {
+            return (
+              <div>
+                university: {section.university} <br />
+                city: {section.city} <br />
+                degree: {section.degree} <br />
+                subject: {section.subject} <br />
                 from: {section.from} <br />
                 to: {section.to}
                 <br /> <br />
