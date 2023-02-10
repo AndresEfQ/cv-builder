@@ -5,15 +5,15 @@ const StyledButton = styled.button`
   padding: 12px 18px;
   border-radius: 5px;
   border: none;
-  background-color: ${props => props.color ? props.color : "rgb(180, 0, 0)"};
+  background-color: ${props => props.color ? props.color : "rgba(180, 20, 20, 0.6)"};
   font-size: 16px;
   font-weight: bold;
   color: rgb(255, 255, 255);
   margin: ${props => {
     return (
-      props.position === "right" ? "12px 0 0 auto" : 
-      props.position === "left" ? "12px auto 0 0" : 
-      "12px auto 0 auto"
+      props.position === "right" ? "12px 0 12px auto" : 
+      props.position === "left" ? "12px auto 12px 0" : 
+      "12px auto 12px auto"
     );}
   };
 
