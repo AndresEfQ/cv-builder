@@ -6,7 +6,7 @@ import StyledForm from "./StyledForm";
 const StyledInputFile = styled.div`
   display: flex;
   align-items: start;
-  justify-content: center;
+  justify-content: start;
   width: 100%;
 
   & input[type="file"] {
@@ -27,7 +27,7 @@ const StyledInputFile = styled.div`
     padding: 12px 18px;
     cursor: pointer;
     border-radius: 5px;
-    background-color: rgb(180, 0, 0);
+    background-color: rgba(180, 20, 20, 0.6);
     font-size: 16px;
     font-weight: bold;
     color: rgb(255, 255, 255);
@@ -43,37 +43,37 @@ class PersonalInfo extends React.Component {
           <ul>
             <li>
               <label htmlFor="firstName">First Name</label>
-              <input type="text" name="firstName" id="firstName" />
+              <input type="text" name="firstName" id="firstName" onChange={this.props.changeInput} />
             </li>
             <li>
               <label htmlFor="lastName">Last Name</label>
-              <input type="text" name="lastName" id="lastName" />
+              <input type="text" name="lastName" id="lastName" onChange={this.props.changeInput} />
             </li>
             <li>
               <label htmlFor="title">Title</label>
-              <input type="text" name="title" id="title"  />
+              <input type="text" name="title" id="title" onChange={this.props.changeInput}  />
             </li>
             <li>
               <label htmlFor="address">Address</label>
-              <input type="text" name="address" id="address" />
+              <input type="text" name="address" id="address" onChange={this.props.changeInput} />
             </li>
             <li>
               <label htmlFor="phone">Phone Number</label>
-              <input type="text" name="phone" id="phone" />
+              <input type="text" name="phone" id="phone" onChange={this.props.changeInput} />
             </li>
             <li>
               <label htmlFor="email">E-mail</label>
-              <input type="text" name="email" id="email"  />
+              <input type="text" name="email" id="email"  onChange={this.props.changeInput} />
             </li>
             <li>
               <label htmlFor="description">Description</label>
-              <textarea name="description" id="description" cols="30" rows="3" placeholder="A short description of who are you and your skills"></textarea>
+              <textarea name="description" id="description" cols="30" rows="3" placeholder="A short description of who are you and your skills" onChange={this.props.changeInput}></textarea>
             </li>
             <li>
               <StyledInputFile>
                 <div>
                   <label htmlFor="photo">Photo</label>
-                  <input type="file" name="photo" id="photo"  />
+                  <input type="file" name="photo" id="photo" onChange={this.props.handlePersonalInfoInputChange} />
                 </div>
               </StyledInputFile>
             </li>

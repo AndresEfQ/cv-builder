@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import uniqid from "uniqid";
 import PersonalInfo from "./PersonalInfo";
 import StyledForm from "./StyledForm";
 import Experience from "./Experience";
@@ -20,129 +19,23 @@ const StyledSection = styled.section`
 
 class EditSection extends React.Component {
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      experience: [{
-        id: uniqid(),
-        position: '',
-        company: '',
-        city: '',
-        from: '',
-        to: '',
-      }],
-      education: [{
-        id: uniqid(),
-        university: '',
-        city: '',
-        degree: '',
-        subject: '',
-        from: '',
-        to: '',
-      }],
-    }
-  }
-
-  handleAddExperience = (e) => {
-    e.preventDefault();
-    this.setState({
-      experience: [...this.state.experience, {
-        id: uniqid(),
-        position: '',
-        company: '',
-        city: '',
-        from: '',
-        to: '',
-      }],
-      education: this.state.education,
-    });
-  }
-
-  handleAddEducation = (e) => {
-    e.preventDefault();
-    this.setState({
-      experience: this.state.experience,
-      education: [...this.state.education, {
-        id: uniqid(),
-        university: '',
-        city: '',
-        degree: '',
-        subject: '',
-        from: '',
-        to: '',
-      }],
-    });
-  }
-
-  handleRemoveExperience = (e, sectionId) => {
-    e.preventDefault();
-    this.setState({
-      experience: this.state.experience.filter((section) => section.id !== sectionId),
-      education: this.state.education,
-    });
-  }
-
-  handleRemoveEducation = (e, sectionId) => {
-    e.preventDefault();
-    this.setState({
-      experience: this.state.experience,
-      education: this.state.education.filter((section) => section.id !== sectionId),
-    });
-  }
-
-  handleExperienceInputChange = (e, sectionId) => {
-    const input = e.target.id;
-    const value = e.target.value;
-    this.setState({
-      experience: this.state.experience.map((section) => {
-        if (section.id === sectionId) {
-          return {
-            ...section,
-            [input]: value,
-          }; 
-        } else {
-          return section;
-        }
-      }),
-      education: this.state.education,
-    });
-  }
-
-  handleEducationInputChange = (e, sectionId) => {
-    const input = e.target.id;
-    const value = e.target.value;
-    this.setState({
-      experience: this.state.experience,
-      education: this.state.education.map((section) => {
-        if (section.id === sectionId) {
-          return {
-            ...section,
-            [input]: value,
-          };
-        } else {
-          return section;
-        }
-      }),
-    });
-  }
-
   render () {
-    let experienceSections = this.state.experience.map(section => <Experience 
+    let experienceSections = this.props.state.experience.map(section => <Experience 
       key={section.id} 
       id={section.id}
-      removeExperience={this.handleRemoveExperience}
-      changeInput={this.handleExperienceInputChange}
+      removeExperience={this.props.handleRemoveExperience}
+      changeInput={this.props.handleExperienceInputChange}
     />);
-    let educationSections = this.state.education.map(section => <Education
+    let educationSections = this.props.state.education.map(section => <Education
       key={section.id}
       id={section.id}
-      removeEducation={this.handleRemoveEducation}
-      changeInput={this.handleEducationInputChange}
+      removeEducation={this.props.handleRemoveEducation}
+      changeInput={this.props.handleEducationInputChange}
     />)
     return (
       <StyledSection>
-        <PersonalInfo />
+        <PersonalInfo
+          changeInput={this.props.handlePersonalInfoInputChange} />
         <StyledForm>
           <fieldset>
             <legend>Experience</legend>
@@ -150,7 +43,7 @@ class EditSection extends React.Component {
           </fieldset>
           <Button
             content="Add Experience" 
-            onClick={this.handleAddExperience}
+            onClick={this.props.handleAddExperience}
           />
           <fieldset>
             <legend>Education</legend>
@@ -158,13 +51,25 @@ class EditSection extends React.Component {
           </fieldset>
           <Button 
             content="Add Education"
-            onClick={this.handleAddEducation}
+            onClick={this.props.handleAddEducation}
           />
         </StyledForm>
         <div>
           TEST STATE
           <br /> <br />
-          <span>{this.state.experience.map((section) => {
+          <span>
+            <div>
+              first name: {this.props.state.personalInfo.firstName} <br />
+              last name: {this.props.state.personalInfo.lastName} <br />
+              title: {this.props.state.personalInfo.title} <br />
+              address: {this.props.state.personalInfo.address} <br />
+              phone number: {this.props.state.personalInfo.phone} <br />
+              email: {this.props.state.personalInfo.email} <br />
+              description: {this.props.state.personalInfo.description} <br />
+              <br /> <br />
+            </div>
+          </span>
+          <span>{this.props.state.experience.map((section) => {
             return (
               <div>
                 position: {section.position} <br />
@@ -176,7 +81,7 @@ class EditSection extends React.Component {
               </div>
             )
           })}</span>
-          <span>{this.state.education.map((section) => {
+          <span>{this.props.state.education.map((section) => {
             return (
               <div>
                 university: {section.university} <br />
