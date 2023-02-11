@@ -1,14 +1,25 @@
 import React from "react";
 import styled from "styled-components";
 import "@fontsource/poppins";
-import avatar from "../images/empty_avatar.cedf234c.png"
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/600.css";
+import avatar from "../images/empty_avatar.cedf234c.png";
+import Button from "./Button";
 
 const Container = styled.div`
   height: calc(100vh - 2.5em);
-  flex: 1;
+  display: flex;
+  flex-direction: column;
   overflow-y: scroll;
   position: sticky;
   top: -2em;
+`;
+
+const SectionDiv = styled.div`
+  display: grid;
+  grid-template-columns: 2fr 4fr;
+  margin-top: 1rem;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
 `;
 
 const StyledSection = styled.section`
@@ -24,7 +35,7 @@ const StyledSection = styled.section`
     color: white;
     font-size: 2em;
     font-weight: bold;
-    background-color: rgba(180, 20, 20, 0.6);
+    background: linear-gradient(180deg, rgba(86,10,168,1) 8%, rgba(137,40,255,1) 100%);
     height: 6rem;
     width: calc(100% - 4rem);
     padding: 1rem 2rem;
@@ -36,11 +47,17 @@ const StyledSection = styled.section`
 
   & h1, h4, h5 {
     margin: 0;
+    font-weight: 600;
   }
   
   & h3 {
-    color: rgba(180, 20, 20, 0.6);
+    color: rgba(86,10,168,0.9);
     border-bottom: 1px solid rgb(200, 200, 200);
+  }
+
+  & p {
+    margin: 0;
+    color: rgba(0,0,0,0.6)
   }
 
   & main {
@@ -53,7 +70,6 @@ const StyledSection = styled.section`
       flex: 1;
     }
   }
-
 
   & img {
     width: 12rem;
@@ -79,13 +95,13 @@ class PreviewSection extends React.Component {
                 <h3>Experience</h3>
                 {this.props.state.experience.map((section) => {
                   return (
-                    <div key={section.id}>
+                    <SectionDiv key={section.id}>
                       <div>{section.from} {section.from ? '-' : '' } {section.to}</div>
                       <div>
                         <h4>{section.position}</h4>
                         <p>{section.company}{section.company ? ',' : ''} {section.city}</p>
                       </div>
-                    </div>
+                    </SectionDiv>
                   )
                 })}
               </section>
@@ -93,20 +109,20 @@ class PreviewSection extends React.Component {
                 <h3>Education</h3>
                 {this.props.state.education.map((section) => {
                   return (
-                    <div key={section.id}>
+                    <SectionDiv key={section.id}>
                       <div>{section.from} {section.from ? '-' : ''} {section.to}</div>
                       <div>
                         <h4>{section.university}{section.university ? ',' : ''} {section.city}</h4>
                         <p>{section.degree ? 'Degree:' : ''} {section.degree}</p>
                         <p>{section.subject ? 'Subject:' : ''} {section.subject}</p>
                       </div>
-                    </div>
+                    </SectionDiv>
                   )
                 })}
               </section>
             </div>
             <aside>
-                <img src={avatar} alt="Profile pic" />
+                <img src={this.props.state.personalInfo.photo ? this.props.state.personalInfo.photo : avatar} alt="Profile pic" />
                 <section>
                   <h3>Personal Details</h3>
                   <h4>{this.props.state.personalInfo.address ? 'Address' : ''}</h4>
@@ -119,6 +135,9 @@ class PreviewSection extends React.Component {
             </aside>
           </main>
         </StyledSection>
+        <Button 
+          content="Print"
+        />
       </Container>
     )
   }

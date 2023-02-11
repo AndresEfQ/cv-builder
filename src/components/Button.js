@@ -5,7 +5,7 @@ const StyledButton = styled.button`
   padding: 12px 18px;
   border-radius: 5px;
   border: none;
-  background-color: ${props => props.color ? props.color : "rgba(180, 20, 20, 0.6)"};
+  background: ${props => props.color ? props.color : "linear-gradient(180deg, rgba(86,10,168,1) 8%, rgba(137,40,255,1) 100%)"};
   font-size: 16px;
   font-weight: bold;
   color: rgb(255, 255, 255);

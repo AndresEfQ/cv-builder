@@ -27,7 +27,7 @@ const StyledInputFile = styled.div`
     padding: 12px 18px;
     cursor: pointer;
     border-radius: 5px;
-    background-color: rgba(180, 20, 20, 0.6);
+    background: linear-gradient(180deg, rgba(86,10,168,1) 8%, rgba(137,40,255,1) 100%);
     font-size: 16px;
     font-weight: bold;
     color: rgb(255, 255, 255);
@@ -73,7 +73,7 @@ class PersonalInfo extends React.Component {
               <StyledInputFile>
                 <div>
                   <label htmlFor="photo">Photo</label>
-                  <input type="file" name="photo" id="photo" onChange={this.props.handlePersonalInfoInputChange} />
+                  <input type="file" name="photo" id="photo" onChange={this.props.loadPhoto} accept=".jpg, .jpeg, .png" />
                 </div>
               </StyledInputFile>
             </li>

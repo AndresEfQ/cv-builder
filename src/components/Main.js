@@ -26,7 +26,7 @@ class Main extends React.Component {
         phone: '',
         email: '',
         description: '',
-        photoUrl: '',
+        photo: '',
       },
       experience: [{
         id: uniqid(),
@@ -143,6 +143,24 @@ class Main extends React.Component {
     });
   }
 
+  handlePhotoLoad = (e) => {
+    const input = e.target.id;
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.readAsDataURL(file)
+    reader.onload = () => {
+      this.setState({
+        ...this.state,
+        personalInfo: {
+          ...this.state.personalInfo,
+          [input]: reader.result,
+        }
+      });
+    }
+  }
+
   render () {
     return (
       <StyledMain>
@@ -155,6 +173,7 @@ class Main extends React.Component {
           handlePersonalInfoInputChange={this.handlePersonalInfoInputChange}
           handleExperienceInputChange={this.handleExperienceInputChange}
           handleEducationInputChange={this.handleEducationInputChange}
+          handlePhotoLoad={this.handlePhotoLoad}
         />
         <PreviewSection 
           state={this.state}
