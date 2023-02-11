@@ -9,6 +9,7 @@ const StyledHeader = styled.header`
   font-weight: 900;
   font-size: 4em;
   text-align: center;
+  height: 5rem;
 `;
 
 class Header extends React.Component {

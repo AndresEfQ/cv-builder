@@ -5,7 +5,10 @@ import styled from "styled-components";
 import uniqid from "uniqid";
 
 const StyledMain = styled.main`
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0 4rem;
+  position: relative;
 `;
 
 class Main extends React.Component {
