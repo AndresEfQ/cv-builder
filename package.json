@@ -2,6 +2,7 @@
   "name": "cv-project",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://andresefq.github.io/cv-builder/",
   "dependencies": {
     "@fontsource/cinzel": "^4.5.10",
     "@fontsource/inter": "^4.5.15",
