@@ -2,9 +2,11 @@
 
 React App which allows users to create their own resume using a template and download it in a PDF format or directly print it. This project is part of the Full Stack JavaScript path from [The Odin Project](https://www.theodinproject.com/paths/full-stack-javascript) 
 
-![App Example](https://github.com/AndresEfQ/cv-builder/tree/main/src/images/CV-Builder-Example)
+&#128073
 
- [&#128073 Live Demo &#128072](https://andresefq.github.io/cv-builder/)
+![App Example](https://github.com/AndresEfQ/cv-builder/blob/main/src/images/cv-project-example.png)
+
+[:point_right: Live Demo :point_left:](https://andresefq.github.io/cv-builder/)
 
 ## Getting started
 
