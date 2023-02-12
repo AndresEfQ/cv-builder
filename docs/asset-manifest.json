@@ -1,0 +1,43 @@
+{
+  "files": {
+    "main.css": "/static/css/main.b6259242.css",
+    "main.js": "/static/js/main.76cf2d91.js",
+    "static/media/inter-all-600-normal.woff": "/static/media/inter-all-600-normal.d8872b2170f87e73c798.woff",
+    "static/media/inter-all-400-normal.woff": "/static/media/inter-all-400-normal.8c804432e8c67741aac0.woff",
+    "static/media/raleway-all-700-normal.woff": "/static/media/raleway-all-700-normal.42089e13b4274eeece4b.woff",
+    "static/media/poppins-all-400-normal.woff": "/static/media/poppins-all-400-normal.6fbfdac99c274b77fe96.woff",
+    "static/media/poppins-devanagari-400-normal.woff2": "/static/media/poppins-devanagari-400-normal.64d5f06ee726edd58ca3.woff2",
+    "static/media/empty_avatar.cedf234c.png": "/static/media/empty_avatar.cedf234c.cedf234c0ac4761153d5.png",
+    "static/media/cinzel-all-900-normal.woff": "/static/media/cinzel-all-900-normal.54ce74e66db053517a37.woff",
+    "static/media/inter-latin-ext-600-normal.woff2": "/static/media/inter-latin-ext-600-normal.3cd8400fefcd41fe460c.woff2",
+    "static/media/raleway-latin-700-normal.woff2": "/static/media/raleway-latin-700-normal.bc3c769b66664fe6f48b.woff2",
+    "static/media/inter-latin-ext-400-normal.woff2": "/static/media/inter-latin-ext-400-normal.3a7a76525d98d25962eb.woff2",
+    "static/media/inter-latin-600-normal.woff2": "/static/media/inter-latin-600-normal.8f1e0300e8d26fa8919d.woff2",
+    "static/media/inter-latin-400-normal.woff2": "/static/media/inter-latin-400-normal.be7cb18dc7caf47cf7e9.woff2",
+    "static/media/raleway-latin-ext-700-normal.woff2": "/static/media/raleway-latin-ext-700-normal.6d201a3047b8f455e26f.woff2",
+    "static/media/cinzel-latin-900-normal.woff2": "/static/media/cinzel-latin-900-normal.d4ed086c8651077f81e6.woff2",
+    "static/media/raleway-cyrillic-ext-700-normal.woff2": "/static/media/raleway-cyrillic-ext-700-normal.53904db59a847704f57b.woff2",
+    "static/media/raleway-cyrillic-700-normal.woff2": "/static/media/raleway-cyrillic-700-normal.e9cdcdcdaa07490f17c3.woff2",
+    "static/media/inter-cyrillic-ext-600-normal.woff2": "/static/media/inter-cyrillic-ext-600-normal.c1791ace2adbca4163ca.woff2",
+    "static/media/inter-cyrillic-ext-400-normal.woff2": "/static/media/inter-cyrillic-ext-400-normal.fcc125c4fef4b94c8b13.woff2",
+    "static/media/inter-greek-600-normal.woff2": "/static/media/inter-greek-600-normal.c2ba769d6f2c3a8b76fc.woff2",
+    "static/media/inter-greek-400-normal.woff2": "/static/media/inter-greek-400-normal.0278a49f9007106a0bf4.woff2",
+    "static/media/poppins-latin-400-normal.woff2": "/static/media/poppins-latin-400-normal.405055dd680fa1dcdfa2.woff2",
+    "static/media/cinzel-latin-ext-900-normal.woff2": "/static/media/cinzel-latin-ext-900-normal.78e38c8cfbe5c7ef7f76.woff2",
+    "static/media/inter-cyrillic-600-normal.woff2": "/static/media/inter-cyrillic-600-normal.f17ec551fa8990736da1.woff2",
+    "static/media/raleway-vietnamese-700-normal.woff2": "/static/media/raleway-vietnamese-700-normal.f3598e7afa8d0ea2194b.woff2",
+    "static/media/inter-cyrillic-400-normal.woff2": "/static/media/inter-cyrillic-400-normal.8684fef6e6411779f0b0.woff2",
+    "static/media/poppins-latin-ext-400-normal.woff2": "/static/media/poppins-latin-ext-400-normal.4f38b4331448d2313adc.woff2",
+    "static/media/inter-greek-ext-600-normal.woff2": "/static/media/inter-greek-ext-600-normal.66b622a25da168cc60ec.woff2",
+    "static/media/inter-greek-ext-400-normal.woff2": "/static/media/inter-greek-ext-400-normal.3f642a92b6e57b3a4b84.woff2",
+    "static/media/inter-vietnamese-600-normal.woff2": "/static/media/inter-vietnamese-600-normal.fe7c406ffbd129b7aa88.woff2",
+    "static/media/inter-vietnamese-400-normal.woff2": "/static/media/inter-vietnamese-400-normal.789afb71d327988e2fc8.woff2",
+    "index.html": "/index.html",
+    "main.b6259242.css.map": "/static/css/main.b6259242.css.map",
+    "main.76cf2d91.js.map": "/static/js/main.76cf2d91.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b6259242.css",
+    "static/js/main.76cf2d91.js"
+  ]
+}
