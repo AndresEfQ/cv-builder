@@ -1,10 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+import Cv from "./Cv";
+import ReactToPrint from "react-to-print";
+import Button from "./Button";
 import "@fontsource/poppins";
 import "@fontsource/inter/400.css";
 import "@fontsource/inter/600.css";
-import avatar from "../images/empty_avatar.cedf234c.png";
-import Button from "./Button";
 
 const Container = styled.div`
   height: calc(100vh - 2.5em);
@@ -80,63 +81,12 @@ class PreviewSection extends React.Component {
   render () {
     return (
       <Container>
-        <StyledSection>
-          <header>
-            <h1>{this.props.state.personalInfo.firstName} {this.props.state.personalInfo.lastName}</h1>
-            <h5>{this.props.state.personalInfo.title}</h5>
-          </header>
-          <main>
-            <div>
-              <section>
-                <h3>Description</h3>
-                <p>{this.props.state.personalInfo.description}</p>
-              </section>
-              <section>
-                <h3>Experience</h3>
-                {this.props.state.experience.map((section) => {
-                  return (
-                    <SectionDiv key={section.id}>
-                      <div>{section.from} {section.from ? '-' : '' } {section.to}</div>
-                      <div>
-                        <h4>{section.position}</h4>
-                        <p>{section.company}{section.company ? ',' : ''} {section.city}</p>
-                      </div>
-                    </SectionDiv>
-                  )
-                })}
-              </section>
-              <section>
-                <h3>Education</h3>
-                {this.props.state.education.map((section) => {
-                  return (
-                    <SectionDiv key={section.id}>
-                      <div>{section.from} {section.from ? '-' : ''} {section.to}</div>
-                      <div>
-                        <h4>{section.university}{section.university ? ',' : ''} {section.city}</h4>
-                        <p>{section.degree ? 'Degree:' : ''} {section.degree}</p>
-                        <p>{section.subject ? 'Subject:' : ''} {section.subject}</p>
-                      </div>
-                    </SectionDiv>
-                  )
-                })}
-              </section>
-            </div>
-            <aside>
-                <img src={this.props.state.personalInfo.photo ? this.props.state.personalInfo.photo : avatar} alt="Profile pic" />
-                <section>
-                  <h3>Personal Details</h3>
-                  <h4>{this.props.state.personalInfo.address ? 'Address' : ''}</h4>
-                  <p>{this.props.state.personalInfo.address}</p>
-                  <h4>{this.props.state.personalInfo.phone ? 'Phone Number' : ''}</h4>
-                  <p>{this.props.state.personalInfo.phone}</p>
-                  <h4>{this.props.state.personalInfo.email ? 'Email' : ''}</h4>
-                  <p>{this.props.state.personalInfo.email}</p>
-                </section>
-            </aside>
-          </main>
-        </StyledSection>
-        <Button 
-          content="Print"
+        <Cv state={this.props.state} ref={el => (this.componentRef = el)}/>
+        <ReactToPrint
+          trigger={() => {
+            return <Button content="Print" />
+          }}
+          content={() => this.componentRef}
         />
       </Container>
     )
